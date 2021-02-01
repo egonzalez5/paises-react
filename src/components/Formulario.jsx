@@ -2,7 +2,7 @@ import React from 'react'
 
 const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
-
+ 
 
     // extraer valores
     const {continente} = busqueda;
