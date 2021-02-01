@@ -1,9 +1,9 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import Error from './Error';
 const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
  
-
+    const [error, setError] = useState(false);
     // extraer valores
     const {continente} = busqueda;
 
@@ -16,6 +16,13 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        if(continente.trim() === '') {
+            setError(true);
+            return;
+        }
+        setError(false);
+    
 
         //enviar informacion a componente principal
         setConsultar(true);
@@ -35,6 +42,7 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
                     value = {continente}
                     onChange={handleChange}
                 >
+                    <option value="">Seleccione un continente</option>
                     <option value="Africa">Africa</option>
                     <option value="Americas">America</option>
                     <option value="Asia">Asia</option>
@@ -45,10 +53,11 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
             <div className="">
                 <input
                     type="submit"
-                    value="Buscar paises"
-                    className="btn btn-primary"
+                    value="Buscar"
+                    className="btn btn-success btn-lg"
                 />
             </div>
+            { error ? <Error mensaje="Debe seleccionar un continente" /> : null }
         </form>
 
     );

@@ -39,12 +39,14 @@ function App() {
 
 
   return (
+    
     <div className="container">
-      <h1>Página principal</h1>
-
+      
         <div className="row mt-5">
           
-          <div className="col-md-12">
+        <h1>Buscador de paises</h1>
+
+          <div className="col-md-12 mt-5">
           <Formulario
             busqueda={busqueda}
             setBusqueda={setBusqueda}
