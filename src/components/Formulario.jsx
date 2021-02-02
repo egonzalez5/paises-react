@@ -33,7 +33,10 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
         <form
             onSubmit={handleSubmit}
         >
-            <div className="form-group">
+            <div className="form-group col-md-4 float-left">
+                filtro
+            </div>
+            <div className="form-group col-md-4 float-right">
                 <label htmlFor="continente">Continente</label>
                 <select 
                     className="form-control" 
@@ -49,14 +52,14 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
                     <option value="Europe">Europa</option>
                     <option value="Oceania">Oceania</option>
                 </select>
-            </div>
-            <div className="">
+
                 <input
                     type="submit"
                     value="Buscar"
-                    className="btn btn-success btn-lg"
+                    className="btn btn-success btn-lg mt-3"
                 />
             </div>
+
             { error ? <Error mensaje="Debe seleccionar un continente" /> : null }
         </form>
 
