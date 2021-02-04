@@ -33,10 +33,8 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
         <form
             onSubmit={handleSubmit}
         >
-            <div className="form-group col-md-4 float-left">
-                filtro
-            </div>
-            <div className="form-group col-md-4 float-right">
+            
+            <div className="form-group">
                 <label htmlFor="continente">Continente</label>
                 <select 
                     className="form-control" 

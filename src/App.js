@@ -11,8 +11,10 @@ function App() {
   const [busqueda, setBusqueda] = useState({
     continente:'',
   });
-  const [consultar, setConsultar] = useState(false)
-    
+  const [consultar, setConsultar] = useState(false);
+  const [input, setInput] = useState("");
+
+
   const {continente} = busqueda;
 
   useEffect(() => {
@@ -35,7 +37,12 @@ function App() {
     // eslint-disable-next-line
   }, [consultar])
 
+  const handleChange = (e) => {
+    e.preventDefault()
+    setInput(e.target.value);
+  };
 
+function search(){}
 
   return (
     
@@ -43,7 +50,17 @@ function App() {
       <h1>Buscador de paises</h1>
         <div className="row mt-5">
 
-          <div className="col-md-12">
+          <div className="col-md-6">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Buscar"
+              onChange={handleChange}
+              value={input}/>
+            
+          </div>
+
+          <div className="col-md-6">
           <Formulario
             busqueda={busqueda}
             setBusqueda={setBusqueda}
