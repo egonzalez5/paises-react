@@ -54,7 +54,6 @@ function App() {
       
         <div className="row mt-5 justify-content-center">
 
-
           <div className="col-md-4 ">
           <Formulario
             busqueda={busqueda}
@@ -67,7 +66,6 @@ function App() {
             <ListadoPaises
               consultaPais={consultaPais}
             />
-          
           </div>
       </div>
 
