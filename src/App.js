@@ -3,6 +3,7 @@ import axios from 'axios';
 //import Pais from './components/Pais';
 import ListadoPaises from './components/ListadoPaises';
 import Formulario from './components/Formulario';
+import Header from './components/Header';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     continente:'',
   });
   const [consultar, setConsultar] = useState(false);
-  const [input, setInput] = useState("");
+  const [search, setSearch] = useState('');
 
 
   const {continente} = busqueda;
@@ -39,28 +40,22 @@ function App() {
 
   const handleChange = (e) => {
     e.preventDefault()
-    setInput(e.target.value);
+    setSearch(e.target.value);
   };
 
-function search(){}
+  const filteredCountries = consultaPais.filter(country => {
+    return country.name.toLowerCase().includes(search.toLowerCase())
+  })
 
   return (
-    
+      
     <div className="container">
-      <h1>Buscador de paises</h1>
-        <div className="row mt-5">
+      <Header />
+      
+        <div className="row mt-5 justify-content-center">
 
-          <div className="col-md-6">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Buscar"
-              onChange={handleChange}
-              value={input}/>
-            
-          </div>
 
-          <div className="col-md-6">
+          <div className="col-md-4 ">
           <Formulario
             busqueda={busqueda}
             setBusqueda={setBusqueda}
