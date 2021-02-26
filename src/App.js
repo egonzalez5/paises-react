@@ -4,6 +4,15 @@ import axios from 'axios';
 import ListadoPaises from './components/ListadoPaises';
 import Formulario from './components/Formulario';
 import Header from './components/Header';
+import America from './components/America';
+import Navbar from './components/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 function App() {
@@ -49,27 +58,34 @@ function App() {
 
   return (
       
-    <div className="container">
-      <Header />
-      
-        <div className="row mt-5 justify-content-center">
 
-          <div className="col-md-4 ">
-          <Formulario
-            busqueda={busqueda}
-            setBusqueda={setBusqueda}
-            setConsultar={setConsultar}
-          />
-          </div>
+    <Router>
+      <div className="container">
+        <Navbar />
+        
 
-          <div className="col-md-12">
-            <ListadoPaises
-              consultaPais={consultaPais}
+        
+          <div className="row mt-5 justify-content-center">
+            
+            <div className="col-md-4 ">
+            <Formulario
+              busqueda={busqueda}
+              setBusqueda={setBusqueda}
+              setConsultar={setConsultar}
             />
-          </div>
-      </div>
+            </div>
+            
+            
+            <div className="col-md-12">
+              <ListadoPaises
+                consultaPais={consultaPais}
+              />
+              
+            </div>
+        </div>
 
-    </div>
+      </div>
+    </Router>
   );
 }
 export default App;
