@@ -8,9 +8,7 @@ import America from './components/America';
 import Navbar from './components/Navbar';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+
 } from "react-router-dom";
 
 
@@ -32,8 +30,8 @@ function App() {
     const consultarAPI = async () => {
 
       if(consultar){
-      //const url = 'https://restcountries.eu/rest/v2/all';
-      const url =  `https://restcountries.eu/rest/v2/region/${continente}`;
+      const url = 'https://restcountries.eu/rest/v2/all';
+      //const url =  `https://restcountries.eu/rest/v2/region/${continente}`;
       const resultado = await axios.get(url);
       
       //setConsultaPais(consultaPais.data);
